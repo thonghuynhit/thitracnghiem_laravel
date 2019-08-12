@@ -1,6 +1,6 @@
 @extends('admin.master.index')
 
-@section('danhsachthisinh')
+@section('danhsachdethi')
 
 <div id="content-wrapper">
 
@@ -31,11 +31,14 @@
               <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Họ Tên</th>
-                  <th>Ngày Sinh</th>
-                  <th>Giới Tính</th>
-                  <th>Email</th>
-                  <th>Địa Chỉ</th>
+                  <th>Tên Đề Thi</th>
+                  <th>Thời Gian Bắt Đầu</th>
+                  <th>Thời Gian Kết Thúc</th>
+                  <th>Thời Gian Làm Bài</th>
+                  <th>Người Ra Đề</th>
+                  <th>Trạng Thái</th>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th></th>
 
@@ -51,27 +54,33 @@
                   <th>Salary</th>
                   <th></th>
                   <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </tfoot>
               <tbody>
 
 
-                  @foreach ($thisinh as $ts)
+                  @foreach ($dethi as $dt)
                   <tr>
                     <td style="text-align: center">{{ $stt+= 1 }}</td>
-                    <td style="text-align: center">{{ $ts->hoten }}</td>
-                    <td style="text-align: center">{{ $ts->ngaysinh }}</td>
+                    <td style="text-align: center">{{ $dt->tendethi }}</td>
+                    <td style="text-align: center">{{ $dt->thoigianbatdau }}</td>
+                    <td style="text-align: center">{{ $dt->thoigianketthuc }}</td>
+                    <td style="text-align: center">{{ $dt->thoigianlambai }}</td>
+                    <td style="text-align: center">{{ $dt->nguoirade->hoten }}</td>
                     <td style="text-align: center">
-                        @if ($ts->gioitinh === 1)
-                            Nam
+                        @if($dt->trangthai === 1)
+                            Đang Mở
                         @else
-                            Nữ
+                            Đã Đóng
                         @endif
                     </td>
-                    <td style="text-align: center">{{ $ts->email }}</td>
-                    <td style="text-align: center">{{ $ts->diachi }}</td>
-                    <td style="text-align: center"><a href="admin/suadsthisinh/{{ $ts->id }}" class=".btn .btn-primary"><i class="fas fa-user-edit"></i></a></td>
-                    <td style="text-align: center"><a href="admin/xoadsthisinh/{{ $ts->id }}" class=".btn .btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                    <td style="text-align: center"><a href="admin/dethi/dscauhoi/{{ $dt->id }}" class=".btn .btn-primary"><i class="fas fa-eye"></i></a></td>
+                    <td style="text-align: center" ><a href="admin/dethi/suadethi/{{ $dt->id }}" class=".btn .btn-primary"><i class="fas fa-edit"></i></a></td>
+                    <td style="text-align: center"><a href="admin/dethi/xoadethi/{{ $dt->id }}" class=".btn .btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                    <td style="text-align: center"><a href="admin/dethi/ketquathi/{{ $dt->id }}" class=".btn .btn-primary"><i class="fas fa-poll"></i></a></td>
 
                 </tr>
                   @endforeach
@@ -95,7 +104,9 @@
         </div>
       </div>
     </footer>
-
+    @if(isset($ad_login))
+    <div>{{ $ad_login->hoten }}</div>
+@endif
   </div>
   <!-- /.content-wrapper -->
 

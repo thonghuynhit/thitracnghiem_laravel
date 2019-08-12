@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\thisinh_ds;
 use App\admin_ds;
 use App\nguoirade_ds;
@@ -35,13 +35,15 @@ class template extends Controller
         $pw = $req->pw_ad;
         if(Auth::guard('admin_ds')->attempt(['email' => $un, 'password' => $pw]))
         {
-            echo "thanh cong"."<br>";
-            echo $un." + ".$pw;
-
+            return redirect('admin/dsthisinh');
         }else{
-            echo "that bai";
+            return redirect('admin/login');
         }
 
+    }
+    public function logoutad(){
+        Auth::guard('admin_ds')->logout();
+        return redirect('admin/login');
     }
 
 
@@ -54,9 +56,13 @@ class template extends Controller
         $pw = $req->pw_rd;
         if(Auth::guard('nguoirade_ds')->attempt(['email' => $un, 'password' => $pw]))
         {
-            echo "thanh cong";
+            return redirect('nguoirade/danhsachdethi');
         }else{
-            echo "that bai";
+            return redirect('nguoirade/login');
         }
+    }
+    public function logoutrd(){
+        Auth::guard('nguoirade_ds')->logout();
+        return redirect('nguoirade/login');
     }
 }

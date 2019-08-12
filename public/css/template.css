@@ -249,7 +249,7 @@ body{
     font-size: 1.5em;
     text-align: center;
     padding: 30px 0;
-    margin-bottom: 30px;
+    margin-bottom: 0;
     font-family: 'Roboto', sans-serif;
 }
 .data-login{
@@ -258,7 +258,7 @@ body{
     display: flex;
     justify-content: center;
     position: relative;
-    margin: 25px 0;
+    margin: 15px 0;
 }
 .data-login span::before{
     content: attr(data-placeholder);

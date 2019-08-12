@@ -1,5 +1,5 @@
-@extends('admin.master.index')
-@section('suathisinh')
+@extends('nguoirade.master.index')
+@section('suadethi')
 
 
 <div id="content-wrapper">
@@ -35,44 +35,41 @@
           <div class="card mb-3" style='max-width: 900px'>
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Sửa Thí Sinh</div>
+              Sửa Đề Thi: {{ $dethi->tendethi }}</div>
             <div class="card-body">
               <div class="table-responsive">
                     <div class="container">
-                            <form action="admin/suadsthisinh/{{ $thisinh->id }}" method="POST">
+                            <form action="nguoirade/suadethi/{{ $dethi->id }}" method="POST">
                                 {{ csrf_field() }}
                               <div class="form-group">
-                                <label for="email">Họ Tên: </label>
-                                <input type="text" class="form-control" id="email" value="{{ $thisinh->hoten }}" placeholder="Nhập Họ Tên" name="hoten">
+                                <label for="email">Tên Đề Thi: </label>
+                                <input type="text" class="form-control" id="email" value="{{ $dethi->tendethi }}" placeholder="" name="tendethi">
                               </div>
                               <div class="form-group">
-                                <label for="pwd">Ngày Sinh</label>
-                                <input type="date" class="form-control" value="{{ $thisinh->ngaysinh }}" id="pwd" name="ngaysinh">
+                                <label for="pwd">Thời Gian Bắt Đầu Kì Thi</label>
+                                <input type="datetime" class="form-control" value="{{ $dethi->thoigianbatdau }}" id="pwd" name="thoigianbatdau">
                               </div>
                               <div class="form-group">
-                                    <label for="pwd">Giới Tính</label>
-                                    <div><input type="radio"
-                                        @if($thisinh->gioitinh === 1)
-                                        checked
-                                        @endif
-                                        value="1" name="gioitinh"> <span> Nam</span></div>
-                                    <div><input type="radio"
-                                        @if($thisinh->gioitinh === 0)
-                                        checked
-                                        @endif
-                                        value="0" name="gioitinh"> <span> Nữ</span></div>
+                                    <label for="pwd">Thời Gian Kết Thúc</label>
+                                    <input type="datetime" class="form-control" value="{{ $dethi->thoigianketthuc }}" id="pwd" name="thoigianketthuc">
+                                <div class="form-group">
+                                        <label for="pwd">Thời Gian Làm Bài</label>
+                                        <input type="time" value="{{ $dethi->thoigianlambai }}" class="form-control" id="pwd" name="thoigianlambai">
                                 </div>
                                 <div class="form-group">
-                                        <label for="pwd">Email</label>
-                                        <input type="email" value="{{ $thisinh->email }}" class="form-control" id="pwd" name="email">
-                                </div>
-                                <div class="form-group">
-                                        <label for="pwd">Địa Chỉ</label>
-                                        <input type="text" class="form-control" value="{{ $thisinh->diachi }}" id="pwd" name="diachi">
-                                </div>
-                                <div class="form-group">
-                                        <label for="pwd">Mật Khẩu</label>
-                                        <input type="password" class="form-control" required id="pwd" name="password">
+                                        <label for="pwd">Trạng Thái</label>
+                                        <select class="form-control" id="sel1" name="trangthai">
+                                                <option
+                                                @if($dethi->trangthai === 1)
+                                                    selected
+                                                @endif
+                                                value="1">Mở</option>
+                                                <option
+                                                @if($dethi->trangthai === 0)
+                                                    selected
+                                                @endif
+                                                value="0">Đóng</option>
+                                              </select>
                                 </div>
                               <input type="submit" class="btn btn-primary" value="Sửa">
                             </form>

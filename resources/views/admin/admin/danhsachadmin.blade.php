@@ -1,6 +1,6 @@
 @extends('admin.master.index')
 
-@section('danhsachthisinh')
+@section('danhsachadmin')
 
 <div id="content-wrapper">
 
@@ -32,12 +32,10 @@
                 <tr>
                   <th>STT</th>
                   <th>Họ Tên</th>
-                  <th>Ngày Sinh</th>
-                  <th>Giới Tính</th>
                   <th>Email</th>
                   <th>Địa Chỉ</th>
-                  <th></th>
-                  <th></th>
+                  <th>Sửa</th>
+                  <th>Xoá</th>
 
                 </tr>
               </thead>
@@ -49,30 +47,19 @@
                   <th>Age</th>
                   <th>Start date</th>
                   <th>Salary</th>
-                  <th></th>
-                  <th></th>
                 </tr>
               </tfoot>
               <tbody>
 
 
-                  @foreach ($thisinh as $ts)
+                  @foreach ($admin as $ad)
                   <tr>
                     <td style="text-align: center">{{ $stt+= 1 }}</td>
-                    <td style="text-align: center">{{ $ts->hoten }}</td>
-                    <td style="text-align: center">{{ $ts->ngaysinh }}</td>
-                    <td style="text-align: center">
-                        @if ($ts->gioitinh === 1)
-                            Nam
-                        @else
-                            Nữ
-                        @endif
-                    </td>
-                    <td style="text-align: center">{{ $ts->email }}</td>
-                    <td style="text-align: center">{{ $ts->diachi }}</td>
-                    <td style="text-align: center"><a href="admin/suadsthisinh/{{ $ts->id }}" class=".btn .btn-primary"><i class="fas fa-user-edit"></i></a></td>
-                    <td style="text-align: center"><a href="admin/xoadsthisinh/{{ $ts->id }}" class=".btn .btn-danger"><i class="fas fa-trash-alt"></i></a></td>
-
+                    <td style="text-align: center">{{ $ad->hoten }}</td>
+                    <td style="text-align: center">{{ $ad->email }}</td>
+                    <td style="text-align: center">{{ $ad->diachi }}</td>
+                    <td style="text-align: center"><a href="admin/suadsadmin/{{ $ad->id }}" class=".btn .btn-primary"><i class="fas fa-user-edit"></i></a></td>
+                    <td style="text-align: center"><a href="admin/xoadsadmin/{{ $ad->id }}" class=".btn .btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
                   @endforeach
 

@@ -1,6 +1,6 @@
 @extends('admin.master.index')
 
-@section('danhsachthisinh')
+@section('danhsachdethi')
 
 <div id="content-wrapper">
 
@@ -31,13 +31,16 @@
               <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Họ Tên</th>
-                  <th>Ngày Sinh</th>
-                  <th>Giới Tính</th>
-                  <th>Email</th>
-                  <th>Địa Chỉ</th>
+                  <th>Câu Hỏi</th>
+                  <th>Mức Độ</th>
+                  <th>Phương Án A</th>
+                  <th>Phương Án B</th>
+                  <th>Phương Án C</th>
+                  <th>Phương Án D</th>
+                  <th>Đáp Án Đúng</th>
                   <th></th>
                   <th></th>
+
 
                 </tr>
               </thead>
@@ -51,30 +54,36 @@
                   <th>Salary</th>
                   <th></th>
                   <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </tfoot>
               <tbody>
 
 
-                  @foreach ($thisinh as $ts)
-                  <tr>
-                    <td style="text-align: center">{{ $stt+= 1 }}</td>
-                    <td style="text-align: center">{{ $ts->hoten }}</td>
-                    <td style="text-align: center">{{ $ts->ngaysinh }}</td>
-                    <td style="text-align: center">
-                        @if ($ts->gioitinh === 1)
-                            Nam
+                    @foreach ($dethi_ch->cauhoi as $ch)
+                    <tr>
+                      <td style="text-align: center">{{ $stt+= 1 }}</td>
+                      <td style="text-align: center">{{ $ch->noidung }}</td>
+                      <td style="text-align: center">
+                        @if($ch->mucdo === "0")
+                          Dể
+                        @elseif($ch->mucdo === "1")
+                            Trung Bình
                         @else
-                            Nữ
+                            Khó
                         @endif
-                    </td>
-                    <td style="text-align: center">{{ $ts->email }}</td>
-                    <td style="text-align: center">{{ $ts->diachi }}</td>
-                    <td style="text-align: center"><a href="admin/suadsthisinh/{{ $ts->id }}" class=".btn .btn-primary"><i class="fas fa-user-edit"></i></a></td>
-                    <td style="text-align: center"><a href="admin/xoadsthisinh/{{ $ts->id }}" class=".btn .btn-danger"><i class="fas fa-trash-alt"></i></a></td>
 
-                </tr>
-                  @endforeach
+                      </td>
+                      @foreach($ch->cautraloi as $ctl)
+                          <td style="text-align: center">{{ $ctl->noidung }}</td>
+                      @endforeach()
+                      <td>{{ $ch->dapan->traloi }}</td>
+                      <td style="text-align: center"><a href="admin/dethi/suacauhoi/{{ $ch->id }}" class=".btn .btn-primary"><i class="fas fa-edit"></i></a></td>
+                      <td style="text-align: center"s><a href="admin/dethi/xoacauhoi/{{ $ch->id }}" class=".btn .btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+
+                  </tr>
+                    @endforeach
 
 
               </tbody>

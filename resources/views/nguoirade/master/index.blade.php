@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin</title>
+  <title>Người Ra Đề</title>
   <base href="{{ asset('') }}">
 
   <!-- Custom fonts for this template-->
@@ -57,11 +57,11 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">
-            @if(Auth::guard('admin_ds')->check())
-                <div>{{ App\admin::find(Auth::guard('admin_ds')->id())->hoten }}</div>
+            @if(Auth::guard('nguoirade_ds')->check())
+                <div>{{ App\nguoirade::find(Auth::guard('nguoirade_ds')->id())->hoten }}</div>
             @endif</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="admin/logout">Đăng Xuất</a>
+          <a class="dropdown-item" href="nguoirade/logout">Đăng Xuất</a>
         </div>
       </li>
     </ul>
@@ -73,12 +73,12 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+        <a class="nav-link" href="nguoirade/danhsachdethi">
+            <i class="far fa-list-alt"></i>
+          <span>Danh Sách Đề Thi</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pages</span>
@@ -94,11 +94,11 @@
           <a class="dropdown-item" href="admin/themadmin">Thêm Admin</a>
           <a class="dropdown-item" href="admin/themnguoirade">Thêm Người Ra Đề</a>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+        <a class="nav-link" href="nguoirade/themdethi">
+            <i class="fas fa-plus-circle"></i>
+          <span>Tạo Đề Thi</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="admin/dethi/dsdethi">
@@ -107,21 +107,11 @@
       </li>
     </ul>
 
-    @yield('danhsachthisinh')
-    @yield('danhsachadmin')
-    @yield('danhsachnguoirade')
-    @yield('themthisinh')
-    @yield('suathisinh')
-    @yield('themadmin')
-    @yield('themnguoirade')
-    @yield('suaadmin')
-    @yield('suanguoirade')
     @yield('danhsachdethi')
-    @yield('danhsachcauhoi')
     @yield('suadethi')
-    @yield('suacauhoi')
-    @yield('danhsachdiemthi')
-    @yield('suadiemthi')
+    @yield('themdethi')
+    @yield('themcauhoi')
+
 
   </div>
   <!-- /#wrapper -->

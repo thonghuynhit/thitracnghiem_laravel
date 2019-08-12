@@ -3,6 +3,13 @@
 @section('admin')
 <div class="wrap-login">
     <h1>Đăng Nhập Admin</h1>
+    @if(count($errors) > 0)
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $err)
+                    {{ $err }}<br>
+            @endforeach
+        </div>
+    @endif
     <form action="{{ route('loginad') }}" method="POST">
         {{ csrf_field() }}
         <div class="data-login">

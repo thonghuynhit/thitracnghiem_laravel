@@ -17,10 +17,10 @@
         <div class="logo"></div>
         <div class="menu-sticker">
             <ul>
-                <li><a href="#">Trang Chủ</a></li>
-                <li><a href="#">Giới Thiệu</a></li>
-                <li><a href="#">Làm Bài Thi</a></li>
-                <li><a href="#">Quản Lý Thi</a></li>
+                <li><a href="trangchu">Trang Chủ</a></li>
+                <li><a href="">Giới Thiệu</a></li>
+                <li><a href="">Làm Bài Thi</a></li>
+                <li><a href="">Quản Lý Thi</a></li>
             </ul>
         </div>
     </div>
