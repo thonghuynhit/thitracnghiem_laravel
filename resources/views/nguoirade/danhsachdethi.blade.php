@@ -19,7 +19,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Data Table Example</div>
+          Danh Sách Đề Thí</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -33,15 +33,17 @@
                   <th>Trạng Thái</th>
                   <th></th>
                   <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -62,6 +64,7 @@
                         Đã Đóng
                         @endif
                     </td>
+                    <td style="text-align: center"><a href="nguoirade/themcauhoi/{{ $dt->id }}" class=".btn .btn-primary"><i class="fas fa-plus"></i></a></td>
                     <td style="text-align: center"><a href="nguoirade/suadethi/{{ $dt->id }}" class=".btn .btn-primary"><i class="fas fa-edit"></i></a></td>
                     <td style="text-align: center"><a href="#" class=".btn .btn-primary" data-toggle="modal" data-target="#myModal{{ $dt->id }}"s><i class="fas fa-trash-alt"></i></a>
 

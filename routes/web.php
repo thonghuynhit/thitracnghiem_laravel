@@ -96,6 +96,10 @@ Route::group(['prefix' => 'nguoirade', 'middleware' => 'rd_login'], function () 
     Route::post('themdethi', 'rd_controller@postthemdethi');
     Route::get('themcauhoi/{id}', 'rd_controller@getthemcauhoi');
     Route::post('themcauhoi/{id}', 'rd_controller@postthemcauhoi');
+    Route::get('danhsachcauhoi', 'rd_controller@danhsachcauhoi');
+    Route::get('suacauhoi/{id}', 'rd_controller@getsuacauhoi');
+    Route::post('suacauhoi/{id}', 'rd_controller@postsuacauhoi');
+    Route::get('xoacauhoi/{id}', 'rd_controller@xoacauhoi');
 
 });
 
@@ -103,6 +107,12 @@ Route::group(['prefix' => 'nguoirade', 'middleware' => 'rd_login'], function () 
 
 Route::group(['prefix' => 'thisinh'], function () {
 
+});
+
+Route::group(['prefix' => 'ajax'], function(){
+    Route::group(['prefix' => 'nguoirade'], function(){
+        Route::get('danhsachcauhoi/{id}', 'ajax_controller@danhsachcauhoi');
+    });
 });
 
 

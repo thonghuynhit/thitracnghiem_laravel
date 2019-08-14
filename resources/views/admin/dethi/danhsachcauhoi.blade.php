@@ -24,7 +24,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Data Table Example</div>
+          Danh Sách Câu Hỏi Của Đề Thi: <b>{{ $dethi_ch->tendethi }}</b></div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -47,11 +47,11 @@
               <tfoot>
                 <tr>
                   <th></th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -64,7 +64,7 @@
                     @foreach ($dethi_ch->cauhoi as $ch)
                     <tr>
                       <td style="text-align: center">{{ $stt+= 1 }}</td>
-                      <td style="text-align: center">{{ $ch->noidung }}</td>
+                      <td style="text-align: center">{!! $ch->noidung !!}</td>
                       <td style="text-align: center">
                         @if($ch->mucdo === "0")
                           Dể

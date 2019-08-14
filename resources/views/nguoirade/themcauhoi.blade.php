@@ -41,7 +41,7 @@
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                 <label for="email">Nội Dung Câu Hỏi: </label>
-                                <input type="text" class="form-control" id="email" value="" placeholder="" name="noidung">
+                                <textarea name="noidung" id="editor1" rows="10" cols="150"></textarea>
                                 </div>
                                 <div class="form-group">
                                 <label for="pwd">Mức Độ</label>
@@ -76,7 +76,7 @@
                                                 <option value="4">D</option>
                                               </select>
                                 </div>
-                              <input type="submit" class="btn btn-primary" value="Sửa">
+                              <input type="submit" class="btn btn-primary" value="Thêm">
                             </form>
                     </div>
               </div>

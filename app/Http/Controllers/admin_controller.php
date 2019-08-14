@@ -308,7 +308,16 @@ class admin_controller extends Controller
         return redirect('admin/dethi/suadethi/'.$id)->with('thongbao', 'Sửa Đề Thi Thành Công');
     }
     public function deletedethi($id){
-
+        $dethi = dethi::find($id);
+        $cauhoi = cauhoi::where('id_dethi', $dethi->id)->get();
+        cauhoi::where('id_dethi', $dethi->id)->delete();
+        foreach($cauhoi as $ch){
+            foreach($ch->cautraloi as $tl){
+                cautraloi::where('id_cauhoi', $ch->id)->delete();
+            }
+        }
+        $dethi->delete();
+        return redirect('admin/dethi/dsdethi');
     }
     public function getcauhoi($id){
         $dethi_ch = dethi::find($id);
@@ -360,7 +369,6 @@ class admin_controller extends Controller
             $cautraloi4->save();
             $cauhoi->id_dapan = $dapandung;
             $cauhoi->save();
-            $cauhoi->dapan->save();
             return redirect('admin/dethi/suacauhoi/'.$id)->with('thongbao', 'Sửa Câu Hỏi Thành Công');
     }
     public function deletecauhoi($id){

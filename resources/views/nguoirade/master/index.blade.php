@@ -11,14 +11,16 @@
 
   <title>Người Ra Đề</title>
   <base href="{{ asset('') }}">
-
+    <script src="js/jquery.js"></script>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+    <!-- CKEditor -->
+    <script src="ckeditor/ckeditor.js"></script>
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="js/script.js"></script>
 
 </head>
 
@@ -101,9 +103,9 @@
           <span>Tạo Đề Thi</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="admin/dethi/dsdethi">
+        <a class="nav-link" href="nguoirade/danhsachcauhoi">
           <i class="fas fa-fw fa-table"></i>
-          <span>Đề Thi</span></a>
+          <span>Danh Sách Câu Hỏi</span></a>
       </li>
     </ul>
 
@@ -111,7 +113,8 @@
     @yield('suadethi')
     @yield('themdethi')
     @yield('themcauhoi')
-
+    @yield('danhsachcauhoi')
+    @yield('suacauhoi')
 
   </div>
   <!-- /#wrapper -->
@@ -158,6 +161,17 @@
   <!-- Demo scripts for this page-->
   <script src="js/datatables-demo.js"></script>
 
+  <script>
+        // Thay thế <textarea id="post_content"> với CKEditor
+                CKEDITOR.replace( 'editor1', {
+                    filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+                    filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+                    filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+                    filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+                    filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+                    filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+                } );
+</script>
 </body>
 
 </html>

@@ -15,4 +15,11 @@ $(document).ready(function(){
         if($(".data-login input").val() != ""){
             $(".data-login input").addClass("focus");
         }
+    $("#cauhoi").change(function(){
+        var id = $(this).val();
+        $.get("ajax/nguoirade/danhsachcauhoi/" + id, function(data){
+            $("#dscauhoi").html(data);
+        });
+    });
+
 });

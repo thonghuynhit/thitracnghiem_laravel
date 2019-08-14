@@ -125,7 +125,64 @@ class rd_controller extends Controller
         $cautraloib->save();
         $cautraloic->save();
         $cautraloid->save();
-
-
+        return redirect('nguoirade/themcauhoi/'.$id)->with('thongbao', 'Thêm Câu Hỏi Thành Công');
+    }
+    public function danhsachcauhoi(){
+        $dethi = dethi::where('id_nguoirade', Auth::guard('nguoirade_ds')->id())->get();
+        return view('nguoirade.danhsachcauhoi', compact('dethi'));
+    }
+    public function getsuacauhoi($id){
+        $cauhoi = cauhoi::find($id);
+        $cautraloi = cautraloi::where('id_cauhoi', $id)->get();
+        return view('nguoirade.suacauhoi', compact('cauhoi', 'cautraloi'));
+    }
+    public function postsuacauhoi(Request $req, $id){
+        $cauhoi = cauhoi::find($id);
+        $noidung = $req->noidung;
+        $mucdo = $req->mucdo;
+        $phuongan = array($req->a, $req->b, $req->c, $req->d);
+        $gettraloi = array();
+        $i = 0;
+        $dapandung = $req->dapandung;
+        $this->validate($req, [
+            'noidung' => 'required|min:4',
+            'a' => 'required',
+            'b' => 'required',
+            'c' => 'required',
+            'd' => 'required',
+        ], [
+            'noidung.required' => 'Bạn Chưa Nhập Nội Dung Câu Hỏi',
+            'noidung.min' => 'Nội Dung Câu Hỏi Quá Ngắn',
+            'a.required' => 'Bạn Chưa Nhập Phương Án A',
+            'b.required' => 'Bạn Chưa Nhập Phương Án B',
+            'c.required' => 'Bạn Chưa Nhập Phương Án C',
+            'd.required' => 'Bạn Chưa Nhập Phương Án D',
+        ]);
+            $cauhoi->noidung = $noidung;
+            $cauhoi->mucdo = $mucdo;
+            foreach($cauhoi->cautraloi as $tl){
+                $gettraloi[$i++] = $tl->id;
+            }
+            $cautraloi1 = cautraloi::find($gettraloi[0]);
+            $cautraloi2 = cautraloi::find($gettraloi[1]);
+            $cautraloi3 = cautraloi::find($gettraloi[2]);
+            $cautraloi4 = cautraloi::find($gettraloi[3]);
+            $cautraloi1->noidung = $phuongan[0];
+            $cautraloi2->noidung = $phuongan[1];
+            $cautraloi3->noidung = $phuongan[2];
+            $cautraloi4->noidung = $phuongan[3];
+            $cautraloi1->save();
+            $cautraloi2->save();
+            $cautraloi3->save();
+            $cautraloi4->save();
+            $cauhoi->id_dapan = $dapandung;
+            $cauhoi->save();
+            return redirect('nguoirade/danhsachcauhoi');
+    }
+    public function xoacauhoi($id){
+        $cauhoi = cauhoi::find($id);
+        cautraloi::where('id_cauhoi', $cauhoi->id)->delete();
+        $cauhoi->delete();
+        return redirect('nguoirade/danhsachcauhoi');
     }
 }
