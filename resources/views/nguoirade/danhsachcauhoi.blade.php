@@ -84,7 +84,28 @@
                                     @endforeach
                                     <td style="text-align: center">{{ $ch->dapan->traloi }}</td>
                                     <td style="text-align: center"><a href="nguoirade/suacauhoi/{{ $ch->id }}" class=".btn .btn-primary"><i class="fas fa-edit"></i></a></td>
-                                    <td style="text-align: center"><a href="nguoirade/xoacauhoi/{{ $ch->id }}" class=".btn .btn-primary"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td style="text-align: center"><a href="" data-toggle="modal" data-target="#cauhoi{{ $ch->id }}" class=".btn .btn-primary"><i class="fas fa-trash-alt"></i></a></td>
+
+                                    <div class="modal fade" id="cauhoi{{ $ch->id }}" role="dialog">
+                                            <div class="modal-dialog">
+
+                                              <!-- Modal content-->
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title"><i class="fas fa-exclamation-triangle" style='color: #f1c40f;'>  Cảnh Báo</i></h4>
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <p>Bạn Có Muốn Xoá Câu Hỏi Này Không?  </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="nguoirade/xoacauhoi/{{ $ch->id }}" style="padding: 8px 25px; border-radius: 5px; background-color: #c0392b; text-decoration: none; color: black;">OK</a>
+                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                          </div>
 
                                 </tr>
                             @endforeach

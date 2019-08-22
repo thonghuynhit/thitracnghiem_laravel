@@ -11,4 +11,7 @@ class thisinh extends Model
     public function ketqua(){
         return $this->hasMany("App\ketqua", "id_thisinh", "id");
     }
+    public function bailam(){
+        return $this->hasMany('App\bailam', 'id_thisinh', 'id');
+    }
 }

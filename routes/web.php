@@ -27,13 +27,22 @@ Route::get("model", function(){
 Route::get("db", function(){
     echo DB::table("thisinh")->get();
 });
+Route::get('test', function(){
+    $a = App\bailam::find(1);
+    foreach($a->tinhdiem as $b){
+        echo $b->cauhoi->dapan->traloi;
+    }
+});
+Route::get('random', 'ts_controller@random');
+
+
 #-----trang chu-----
 Route::get('trangchu', 'template@trangchu');
 
 # ---   login ----
 
-Route::get('logints', 'template@getlogints')->name('templatets');
-Route::post('waitlogints', 'template@postlogints')->name('logints');
+Route::get('thisinh/login', 'template@getlogints')->name('templatets');
+Route::post('thisinh/login', 'template@postlogints')->name('logints');
 
 Route::get('admin/login', 'template@getloginad');
 route::post('admin/login', 'template@postloginad')->name('loginad');
@@ -100,18 +109,29 @@ Route::group(['prefix' => 'nguoirade', 'middleware' => 'rd_login'], function () 
     Route::get('suacauhoi/{id}', 'rd_controller@getsuacauhoi');
     Route::post('suacauhoi/{id}', 'rd_controller@postsuacauhoi');
     Route::get('xoacauhoi/{id}', 'rd_controller@xoacauhoi');
-
 });
 
 #-------- Route thisinh --------
 
-Route::group(['prefix' => 'thisinh'], function () {
-
+Route::group(['prefix' => 'thisinh', 'middleware' => 'ts_login'], function () {
+    Route::get('chondethi', 'ts_controller@chondethi');
+    Route::get('logout', 'ts_controller@logout');
+    Route::post('xulybaithi/{id}', 'ts_controller@xulybaithi');
+    Route::get('ketquabaithi/{id}', 'ts_controller@ketquabaithi');
+    Route::group(['prefix' => 'lambaithi', 'middleware' => 'lambaithi'], function(){
+        Route::post('xuly/{id}', 'ts_controller@xuly_dethi');
+        Route::post('lambaithi/{id}', 'ts_controller@lambaithi');
+        Route::get('lambaithi/{id}', 'ts_controller@xxxxx');
+    });
 });
 
 Route::group(['prefix' => 'ajax'], function(){
     Route::group(['prefix' => 'nguoirade'], function(){
         Route::get('danhsachcauhoi/{id}', 'ajax_controller@danhsachcauhoi');
+    });
+    Route::group(['prefix' => 'thisinh'], function(){
+        Route::get('chondethi/{id}', 'ajax_controller@chondethi');
+        Route::get('chonde/{id}', 'ajax_controller@chonde');
     });
 });
 

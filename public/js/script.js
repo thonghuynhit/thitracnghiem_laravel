@@ -21,5 +21,18 @@ $(document).ready(function(){
             $("#dscauhoi").html(data);
         });
     });
-
+    $('#nguoirade').change(function(){
+        let id = $(this).val();
+        $.get("ajax/thisinh/chondethi/" + id, function(data){
+            $("#dethi").html(data);
+        });
+    });
+    $('#dethi').change(function(){
+        var id = $(this).val();
+        $.get('ajax/thisinh/chonde/' + id, function(data){
+            $("#chonde").html(data);
+        });
+    });
+    $(".sodo li:first").addClass("active");
+    $(".carousel-inner div:first").addClass("active");
 });

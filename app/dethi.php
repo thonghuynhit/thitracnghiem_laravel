@@ -17,6 +17,9 @@ class dethi extends Model
     public function ketqua(){
         return $this->hasMany("App\ketqua", "id_dethi", "id");
     }
+    public function bailam(){
+        return $this->hasMany('App\bailam', 'id_dethi', 'id');
+    }
 
 
 }

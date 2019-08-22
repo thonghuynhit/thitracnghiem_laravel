@@ -11,4 +11,7 @@ class dapan extends Model
     public function cauhoi(){
         return $this->hasOne("App\cauhoi", "id_dapan", "id");
     }
+    public function tinhdiem(){
+        return $this->hasOne("App\\tinhdiem", "ts_chon", "id");
+    }
 }

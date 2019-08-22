@@ -17,4 +17,7 @@ class cauhoi extends Model
     public function dapan(){
         return $this->belongsTo("App\dapan", "id_dapan", "id");
     }
+    public function tinhdiem(){
+        return $this->hasMany('App\tinhdiem', 'id_cauhoi', 'id');
+    }
 }

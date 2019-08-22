@@ -20,7 +20,7 @@ class template extends Controller
         $un = $req->un_ts;
         $pw = $req->pw_ts;
         if(Auth::guard('thisinh_ds')->attempt(['email'=> $un, 'password' => $pw])){
-            echo "thanh cong";
+            return redirect('thisinh/chondethi');
         }else{
             return redirect()->route('templatets');
         }

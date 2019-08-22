@@ -33,7 +33,7 @@
           <div class="card mb-3" style='max-width: 900px'>
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Sửa Thí Sinh</div>
+              Thêm Câu Hỏi</div>
             <div class="card-body">
               <div class="table-responsive">
                     <div class="container">

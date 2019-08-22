@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="trangchu">Trang Chủ</a></li>
                 <li><a href="">Giới Thiệu</a></li>
-                <li><a href="">Làm Bài Thi</a></li>
+                <li><a href="thisinh/chondethi">Làm Bài Thi</a></li>
                 <li><a href="">Quản Lý Thi</a></li>
             </ul>
         </div>
@@ -29,7 +29,7 @@
             <h1>Thi Trắc Nghiệm Online</h1>
         </div>
         <div class="thi">
-            <a href="#">Thi Ngay </a>
+            <a href="thisinh/chondethi">Thi Ngay </a>
         </div>
     </div>
     <div class="aside">
