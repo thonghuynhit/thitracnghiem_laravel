@@ -38,7 +38,7 @@ Route::get('random', 'ts_controller@random');
 
 #-----trang chu-----
 Route::get('trangchu', 'template@trangchu');
-
+Route::get('gioithieu', 'template@gioithieu');
 # ---   login ----
 
 Route::get('thisinh/login', 'template@getlogints')->name('templatets');
@@ -109,6 +109,7 @@ Route::group(['prefix' => 'nguoirade', 'middleware' => 'rd_login'], function () 
     Route::get('suacauhoi/{id}', 'rd_controller@getsuacauhoi');
     Route::post('suacauhoi/{id}', 'rd_controller@postsuacauhoi');
     Route::get('xoacauhoi/{id}', 'rd_controller@xoacauhoi');
+    Route::get('danhsachketqua', 'rd_controller@danhsachketqua');
 });
 
 #-------- Route thisinh --------
@@ -118,6 +119,9 @@ Route::group(['prefix' => 'thisinh', 'middleware' => 'ts_login'], function () {
     Route::get('logout', 'ts_controller@logout');
     Route::post('xulybaithi/{id}', 'ts_controller@xulybaithi');
     Route::get('ketquabaithi/{id}', 'ts_controller@ketquabaithi');
+    Route::get('ketquathi', 'ts_controller@ketquathi');
+    Route::get('doimatkhau', 'ts_controller@getdoimatkhau');
+    Route::post('doimatkhau', 'ts_controller@postdoimatkhau');
     Route::group(['prefix' => 'lambaithi', 'middleware' => 'lambaithi'], function(){
         Route::post('xuly/{id}', 'ts_controller@xuly_dethi');
         Route::post('lambaithi/{id}', 'ts_controller@lambaithi');
@@ -128,6 +132,7 @@ Route::group(['prefix' => 'thisinh', 'middleware' => 'ts_login'], function () {
 Route::group(['prefix' => 'ajax'], function(){
     Route::group(['prefix' => 'nguoirade'], function(){
         Route::get('danhsachcauhoi/{id}', 'ajax_controller@danhsachcauhoi');
+        Route::get('ketquadethi/{id}', 'ajax_controller@ketquadethi');
     });
     Route::group(['prefix' => 'thisinh'], function(){
         Route::get('chondethi/{id}', 'ajax_controller@chondethi');

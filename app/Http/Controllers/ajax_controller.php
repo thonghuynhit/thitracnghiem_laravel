@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\cauhoi;
 use App\dethi;
 use App\nguoirade;
+use App\ketqua;
 use Illuminate\Support\Carbon;
 class ajax_controller extends Controller
 {
@@ -170,6 +171,41 @@ class ajax_controller extends Controller
            }
         echo "</div>
     </div>";
+    }
+    public function ketquadethi($id){
+        $all_dt = dethi::where('id_nguoirade', Auth::guard('nguoirade_ds')->id())->get();
+        $i = 1;
+
+       if($id == 0){
+        foreach($all_dt as $dt_all){
+            foreach($dt_all->ketqua as $kq_all){
+                echo "<tr>
+                <td>".$i++."</td>
+                <td>".$kq_all->thisinh->hoten."</td>
+                <td>".$kq_all->socaudung."</td>
+                <td>".$kq_all->socausai."</td>
+                <td>".$kq_all->diem."</td>";
+                echo "</tr>";
+
+
+            }
+        }
+
+       }else{
+        $dethi = dethi::find($id);
+        $ketqua = ketqua::where('id_dethi', $dethi->id)->orderBy('id', 'desc')->get();
+           foreach($ketqua as $kq){
+           echo "<tr>
+           <td>".$i++."</td>
+           <td>".$kq->thisinh->hoten."</td>
+           <td>".$kq->socaudung."</td>
+           <td>".$kq->socausai."</td>
+           <td>".$kq->diem."</td>
+
+           </tr>";
+
+       }
+       }
     }
 
 }

@@ -18,9 +18,9 @@
         <div class="menu-sticker">
             <ul>
                 <li><a href="trangchu">Trang Chủ</a></li>
-                <li><a href="">Giới Thiệu</a></li>
+                <li><a href="gioithieu">Giới Thiệu</a></li>
                 <li><a href="thisinh/chondethi">Làm Bài Thi</a></li>
-                <li><a href="">Quản Lý Thi</a></li>
+                <li><a href="nguoirade/login">Quản Lý Thi</a></li>
             </ul>
         </div>
     </div>
@@ -35,35 +35,6 @@
     <div class="aside">
 
     </div>
-    <div class="footer">
-        <div class="content">
-            <div class="contact">
-                <div class="title_contact">Liên Hệ</div>
-                <div class="content_contact">
-                    <div>
-                        <div></div>
-                        <div>0987654321</div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div>Facebook</div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div>Twitter</div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div>Github</div>
-                    </div>
-                </div>
-            </div>
-            <div class="speech"></div>
-            <div class="list">
-                <div class="title_list"></div>
-            </div>
-        </div>
-        <div class="design"></div>
-    </div>
+@include('layouts.footer')
 </body>
 </html>

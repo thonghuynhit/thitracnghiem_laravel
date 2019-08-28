@@ -27,6 +27,7 @@
                 <tr>
                   <th>STT</th>
                   <th>Tên Đề Thi</th>
+                  <th>Mã Đề Thí</th>
                   <th>Thời Gian Bắt Đầu</th>
                   <th>Thời Gian Kết Thúc</th>
                   <th>Thời Gian Làm Bài</th>
@@ -47,6 +48,7 @@
                   <th></th>
                   <th></th>
                   <th></th>
+                  <th></th>
                 </tr>
               </tfoot>
               <tbody>
@@ -54,6 +56,7 @@
                 <tr>
                     <td style="text-align: center">{{ $i+=1 }}</td>
                     <td style="text-align: center">{{ $dt->tendethi }}</td>
+                    <td style="text-align: center">{{ $dt->id }}</td>
                     <td style="text-align: center">{{ $dt->thoigianbatdau }}</td>
                     <td style="text-align: center">{{ $dt->thoigianketthuc }}</td>
                     <td style="text-align: center">{{ $dt->thoigianlambai }}</td>

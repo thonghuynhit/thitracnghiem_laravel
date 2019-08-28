@@ -46,7 +46,7 @@
 <div class="xemketqua">
     <div>
         <a href="trangchu"><i class="fas fa-arrow-left"></i> Trang Chủ</a>
-        <a href="" class="xem_kq">Xem Kết Quả <i class="fas fa-eye"></i></a>
+        <span href="" class="xem_kq">Xem Kết Quả <i class="fas fa-eye"></i></span>
     </div>
     <?php $i = 0; $n = 0; ?>
     <div class="ds_ketqua">

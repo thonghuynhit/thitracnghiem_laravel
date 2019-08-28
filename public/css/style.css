@@ -173,7 +173,6 @@ header{
 .thi_frame{
     height: auto;
     width: 100%;
-    background-color: #00a8ff;
     display: grid;
     grid-template-columns: repeat(6fr);
     grid-template-columns: 170px 130px 210px 170px 170px 170px;
@@ -184,9 +183,11 @@ header{
     display: flex;
     flex-direction: row;
     grid-area: fr1;
+    font-size: 1.1em;
+    color: #fff;
 }
 .thi_info > div:nth-child(1){
-    background-color: #003d98;
+    background-color: #34495e;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -194,6 +195,7 @@ header{
     padding-left: 50px;
 }
 .thi_info > div:nth-child(2){
+    background-color: #34495e;
     width: 50%;
     padding: 50px;
 }
@@ -204,7 +206,6 @@ header{
     width: 300px;
 }
 .thi_thi{
-    background-color: #ffa502;
     grid-area: fr3;
     padding: 10px;
     min-height: 600px;
@@ -212,11 +213,18 @@ header{
 
 
 .carousel-item{
-    background-color: #0076cd;
+
     min-height: 550px;
 }
 .sodo{
     position: relative;
+}
+.sodo_title{
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    color: #d35400;
 }
 .sodo li{
     height: 35px;
@@ -224,17 +232,24 @@ header{
     border-radius: 50%;
     border: none;
     margin: 5px;
-    background-color: #00a8ff;
+    background-color: #f39c12;
     list-style: none;
     float: left;
-
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    font-weight: bold;
+    transition: all .3s;
+}
+.sodo li:hover{
+    background-color: #d35400;
 }
 .next-pre{
     position: absolute;
-    bottom: 50px;
-    width: 200px;
+    top: 800px;
+    width: 250px;
     margin-left: 20px;
-    margin-bottom: 35px;
+    margin-bottom: 155px;
 }
 .tinhthoigianthi{
     position: relative;
@@ -307,6 +322,7 @@ header{
     background-color: #c0392b;
     color: #f5f6fa;
     transition: all .3s;
+    margin-left: 12px;
 }
 .xem_kq:hover{
     background-color: #e74c3c;
@@ -316,6 +332,7 @@ header{
 .ds_ketqua{
     width: 700px;
     margin: auto;
+    display: none;
 }
 .ds_nd{
     padding: 10px;
@@ -331,4 +348,174 @@ header{
 #isfalse{
     background-color: #c0392b;
 }
+.laravel{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    background-image: url('../image/laravel.png');
+    background-position: center;
+}
+.space_about{
+    height: 12px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: #f1c40f;
+    margin: 30px auto;
+}
+.gioithieu{
+    padding: 30px 150px;
+    font-size: 1.4em;
+    line-height: 2.2;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+/* ------- footer --------- */
+.footer{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #263a4e;
+}
+.footer > .content{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer > .content > .contact{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+.footer > .content > .contact .title_contact{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 5px;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 2px solid #e67e22;
+}
+.footer > .content > .contact .content_contact{
+    display: flex;
+    flex-direction: column;
+}
+.footer > .content > .contact .content_contact > div{
+    height: 40px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.footer > .content > .contact .content_contact > div > div:nth-child(1){
+    color: #fff;
+}
+.footer > .content > .contact .content_contact > div > div:nth-child(2){
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}
+.footer > .content > .contact .content_contact > div:nth-child(1) > div:nth-child(1){
+    height: 40px;
+    width: 40px;
+    background: url("../image/phone.svg");
+    background-repeat: no-repeat;
+}
+.footer > .content > .contact .content_contact > div:nth-child(2) > div:nth-child(1){
+    height: 40px;
+    width: 40px;
+    background: url("../image/facebook.svg");
+    background-repeat: no-repeat;
+}
+.footer > .content > .contact .content_contact > div:nth-child(3) > div:nth-child(1){
+    height: 40px;
+    width: 40px;
+    background: url("../image/twitter.svg");
+    background-repeat: no-repeat;
+}
+.footer > .content > .contact .content_contact > div:nth-child(4) > div:nth-child(1){
+    height: 40px;
+    width: 40px;
+    background: url("../image/github.svg");
+    background-repeat: no-repeat;
+}
+.footer > .content > .speech{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.speech > div{
+    font-size: 1.3em;
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 2px solid #e67e22;
+}
+.speech > a{
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    color: #f5f6fa;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: all .3s;
+}
+.speech > a:hover{
+    color: #e67e22;
+}
+.footer > .content > .list{
+    width: 200px;
+    height: 200px;
+}
+.title_list > div{
+    padding: 13px 30px;
+}
+.title_list > div a{
+    text-decoration: none;
+    color: #f5f6fa;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all .3s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.title_list > div a:hover{
+    color: #e67e22;
+}
+.footer > .design{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: #e67e22 1px solid;
+}
+.footer > .design div{
+    font-size: 0.8em;
+    color: #bdc3c7;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.reset_pass{
+    width: 700px;
+    margin: auto auto 200px auto;
+}
+.reset_pass > span{
+    margin: auto;
+    font-size: 1.3em;
+    color: #c0392b;
+    font-weight: 600;
+}
+.time_title{
+    margin: 10px;
+}
+.tinhthoigianthi{
+    font-size: 1.3em;
+}
+.tt{
+    padding: 10px;
+}
+
 

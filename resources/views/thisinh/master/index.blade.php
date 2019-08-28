@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/jquery.js"></script>
+
     <!-- validate jquery -->
     <script src="js/jquery.validate.min.js"></script>
   <!-- Custom fonts for this template-->
@@ -34,7 +35,7 @@
                 <li><a href="trangchu">Trang Chủ</a></li>
                 <li><a href="">Giới Thiệu</a></li>
                 <li><a href="thisinh/chondethi">Làm Bài Thi</a></li>
-                <li><a href="">Kết Quả Thi</a></li>
+                <li><a href="thisinh/ketquathi">Kết Quả Thi</a></li>
             </ul>
             <div class="user">
                 <i class="fas fa-2x fa-user-circle" style="color: #fff;"></i>
@@ -44,7 +45,7 @@
                     {{ App\thisinh::find(Auth::guard('thisinh_ds')->id())->hoten }}
                     @endif
                     </a></div>
-                    <div><a href="">Đổi Mật Khẩu</a></div>
+                    <div><a href="thisinh/doimatkhau">Đổi Mật Khẩu</a></div>
                     <div><a href="thisinh/logout">Đăng Xuất</a></div>
                 </div>
             </div>
@@ -56,13 +57,11 @@
         @yield('lambaithi')
         @yield('autosub')
         @yield('ketquavuathi')
-
+        @yield('ketquathi')
+        @yield('gioithieu')
+        @yield('doimatkhau')
     </div>
-    <footer>
-
-
-
-    </footer>
+    @include('layouts.footer')
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Core plugin JavaScript-->

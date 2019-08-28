@@ -185,4 +185,8 @@ class rd_controller extends Controller
         $cauhoi->delete();
         return redirect('nguoirade/danhsachcauhoi');
     }
+    public function danhsachketqua(){
+        $dethi = dethi::where('id_nguoirade', Auth::guard('nguoirade_ds')->id())->get();
+        return view('nguoirade.danhsachketquathi', compact('dethi'));
+    }
 }

@@ -35,16 +35,7 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
@@ -107,6 +98,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Danh Sách Câu Hỏi</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="nguoirade/danhsachketqua">
+            <i class="fas fa-poll"></i>
+          <span>Danh Sách Kết Quả</span></a>
+      </li>
     </ul>
 
     @yield('danhsachdethi')
@@ -118,7 +114,6 @@
 
   </div>
   <!-- /#wrapper -->
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>

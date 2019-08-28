@@ -51,7 +51,11 @@ class ts_controller extends Controller
         $id_ts = Auth::guard('thisinh_ds')->id();
         $bailam_id_new = bailam::where('id_thisinh', $id_ts)->max('id');
         $bailam_new = bailam::find($bailam_id_new);
-        return view('thisinh.lambaithi', compact('dethi', 'demcauhoi', 'bailam_new', 'cauhoi_random', 'chuoi_rand'));
+        $time = explode(":", $dethi->thoigianlambai);
+        $hour = $time[0];
+        $minute = $time[1];
+        $seconds = $time[2];
+        return view('thisinh.lambaithi', compact('dethi', 'demcauhoi', 'bailam_new', 'cauhoi_random', 'chuoi_rand', 'hour', 'minute', 'seconds'));
     }
     public function xulybaithi(Request $req, $id){
         $dapan_ts_chon = array();
@@ -102,13 +106,19 @@ class ts_controller extends Controller
         $chon = array("A", "B", "C", "D", "E");
         return view('thisinh.ketquavuathi', compact('bailam', 'ketqua', 'demcauhoi', 'chon'));
     }
-    function random(){
-        //$cauhoi = cauhoi::where('id_dethi', 23)->inRandomOrder()->get();
-        //session()->forget('aaa');
-        echo session('aaa');
-        var_dump(session('aaa'));
-        //foreach($cauhoi as $ch){
-           // echo $ch->noidung;
-        //}
+    public function ketquathi(){
+        $ketqua = ketqua::where('id_thisinh', Auth::guard('thisinh_ds')->id())->orderBy('id')->get();
+        return view('thisinh.ketquathi', compact('ketqua'));
+    }
+    public function getdoimatkhau(){
+        $matkhaucu = thisinh::find(Auth::guard('thisinh_ds')->id());
+        return view('thisinh.doimatkhau');
+    }
+    public function postdoimatkhau(Request $req){
+        $matkhaucu = thisinh::find(Auth::guard('thisinh_ds')->id());
+            $matkhaucu->password = bcrypt($req->pass_new);
+            $matkhaucu->save();
+            Auth::guard('thisinh_ds')->logout();
+            return redirect('thisinh/login');
     }
 }

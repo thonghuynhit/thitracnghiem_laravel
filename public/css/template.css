@@ -8,6 +8,7 @@
 body{
     min-height: 100vh;
     width: 100%;
+    background-image: linear-gradient(to right top, #b86f00, #cb8c00, #daaa00, #e5ca00, #ebeb12);
 }
 .menu{
     height: 80px;
@@ -169,12 +170,11 @@ body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #0e1424;
+    background-color: #263a4e;
 }
 .footer > .content{
     height: 85%;
     width: 100%;
-    background-color: red;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -183,8 +183,15 @@ body{
 .footer > .content > .contact{
     display: flex;
     flex-direction: column;
-    background: pink;
     width: 200px;
+}
+.footer > .content > .contact .title_contact{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 5px;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 2px solid #e67e22;
 }
 .footer > .content > .contact .content_contact{
     display: flex;
@@ -192,10 +199,18 @@ body{
 }
 .footer > .content > .contact .content_contact > div{
     height: 40px;
-    background-color: blue;
     margin: 5px;
     display: flex;
     flex-direction: row;
+}
+.footer > .content > .contact .content_contact > div > div:nth-child(1){
+    color: #fff;
+}
+.footer > .content > .contact .content_contact > div > div:nth-child(2){
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
 }
 .footer > .content > .contact .content_contact > div:nth-child(1) > div:nth-child(1){
     height: 40px;
@@ -224,16 +239,59 @@ body{
 .footer > .content > .speech{
     width: 200px;
     height: 200px;
-    background: pink;
+    display: flex;
+    flex-direction: column;
+}
+.speech > div{
+    font-size: 1.3em;
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 2px solid #e67e22;
+}
+.speech > a{
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    color: #f5f6fa;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: all .3s;
+}
+.speech > a:hover{
+    color: #e67e22;
 }
 .footer > .content > .list{
     width: 200px;
     height: 200px;
-    background: pink;
+}
+.title_list > div{
+    padding: 13px 30px;
+}
+.title_list > div a{
+    text-decoration: none;
+    color: #f5f6fa;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all .3s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.title_list > div a:hover{
+    color: #e67e22;
 }
 .footer > .design{
     height: 15%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: #e67e22 1px solid;
+}
+.footer > .design div{
+    font-size: 0.8em;
+    color: #bdc3c7;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 /*------       Login        ---------*/
 .wrap-login{
@@ -323,5 +381,4 @@ body{
     -moz-box-shadow: -9px 6px 13px -8px rgba(0,0,0,0.75);
     box-shadow: -9px 6px 13px -8px rgba(0,0,0,0.75);
 }
-
 

@@ -13,6 +13,9 @@ class template extends Controller
     public function trangchu(){
         return view('trangchu');
     }
+    public function gioithieu(){
+        return view('gioithieu');
+    }
     public function getlogints(){
         return view('login_thisinh');
     }
